@@ -15,6 +15,7 @@ exports.findAll = (req, res) => {
   };
 
 exports.findOne = (req, res) => {
+  console.log("finding one")
     const id = req.params.id;
 
     Location.findByID(id, (err, data) => {
@@ -26,3 +27,4 @@ exports.findOne = (req, res) => {
         else res.send(data);
     })
 }
+
