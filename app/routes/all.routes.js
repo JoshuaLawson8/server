@@ -16,7 +16,7 @@ module.exports = app => {
     router.get("/employee/", employee.findAll)
     router.get("/employee/:id", employee.findOne)
     router.put("/employee/:id", employee.update)
-    router.get("/getPatients/:id", employee.findPatients)
+    router.get("/findPatients/:id", employee.findPatients)
     router.get("/findDoctorAppointments/:id",employee.findAppointments)
     
     router.get("/location/", location.findAll)

@@ -105,7 +105,11 @@ Patient.getDoctor = (Patient_ID, result) => {
 Patient.getAppointments = (Patient_ID, result) => {
 
   sql.query(
-    `SELECT * from patient_appointment where Patient_ID = ?`,
+    `SELECT P.*, E.First_Name, E.Last_Name from patient_appointment P
+    join employee E
+    on E.Employee_ID = P.Employee_ID
+    where Patient_ID = ?
+    `,
     [Patient_ID],
     (err, res) => {
     if (err) {

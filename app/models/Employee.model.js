@@ -26,7 +26,10 @@ Employee.getAll = (title, result) => {
 
 Employee.findByID = (id, result) => {
   console.log(id);
-  sql.query(`SELECT * FROM employee WHERE Employee_ID=${id}`, (err, res) => {
+  sql.query(`SELECT E.*, L.* FROM employee E
+  join location L 
+  on E.Location_ID = L.Location_ID
+  WHERE Employee_ID=${id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
